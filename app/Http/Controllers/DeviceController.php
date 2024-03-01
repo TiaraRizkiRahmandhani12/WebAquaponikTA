@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class DeviceController extends Controller
 {
     public function index()
     {
-        return view('page.monitoring.dashboard');
+        return view('page.monitoring.device');
     }
 }

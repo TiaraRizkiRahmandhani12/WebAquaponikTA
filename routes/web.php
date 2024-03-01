@@ -16,10 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PakanController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\AnalisisController;
+use App\Http\Controllers\ControlController;
+use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/pakan', [PakanController::class, 'index'])->name('pakan');
-Route::get('/apakek', [PakanController::class, 'apakek'])->name('apakek');
-Route::get('/apakek2', [DashboardController::class, 'template'])->name('template');
+Route::get('/analisis-view', [AnalisisController::class, 'index'])->name('analisis');
+Route::get('/control-view', [ControlController::class, 'index'])->name('control');
+Route::get('/device-view', [DeviceController::class, 'index'])->name('device');
+Route::get('/profile-view', [ProfileController::class, 'index'])->name('profile');
+Route::get('/profile-change-password', [ProfileController::class, 'changePassword'])->name('change.pswd');
