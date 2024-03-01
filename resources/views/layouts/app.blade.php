@@ -87,7 +87,7 @@
                     </div>
                 </li>
                 <li class="nav-item nav-category">
-                    <span class="nav-link">Navigation</span>
+                    <span class="nav-link">Menu</span>
                 </li>
                 <li class="nav-item menu-items">
                     <a class="nav-link" href="{{ route('dashboard') }}">
@@ -98,27 +98,27 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="{{ route('pakan') }}">
+                    <a class="nav-link" href="{{ route('analisis') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-playlist-play"></i>
                         </span>
-                        <span class="menu-title">Pakan</span>
+                        <span class="menu-title">Analisis</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="{{ route('apakek') }}">
+                    <a class="nav-link" href="{{ route('control') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-table-large"></i>
                         </span>
-                        <span class="menu-title">Tables</span>
+                        <span class="menu-title">Control</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="{{ route('template') }}">
+                    <a class="nav-link" href="{{ route('device') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-chart-bar"></i>
                         </span>
-                        <span class="menu-title">Charts</span>
+                        <span class="menu-title">Device</span>
                     </a>
                 </li>
             </ul>
