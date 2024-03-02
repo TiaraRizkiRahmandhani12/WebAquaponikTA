@@ -73,7 +73,7 @@
                                 </div>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item preview-item">
+                            <a href="{{ route('logout') }}" class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
                                     <div class="preview-icon bg-dark rounded-circle">
                                         <i class="mdi mdi-calendar-today text-success"></i>
@@ -169,9 +169,13 @@
                     </button>
                 </div>
             </nav>
+
+
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
+                    {{-- flash message --}}
+                    @include('components.alert')
                     @yield('content')
                 </div>
 
@@ -208,6 +212,7 @@
     <script src="assets/js/misc.js"></script>
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/todolist.js"></script>
+    <script src="assets/js/flash-message.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="assets/js/dashboard.js"></script>
