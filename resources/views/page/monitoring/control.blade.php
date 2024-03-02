@@ -6,7 +6,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form method="POST" action="#">
+                    <form method="POST" action="{{ route('pakan.update', ['id' => 1]) }}">
                         @csrf
                         <h3 style="margin-bottom: 20px">Setting Jam Pemberian Pakan Ikan Otomatis</h3>
                         <table>
