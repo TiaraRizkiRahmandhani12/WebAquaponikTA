@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Pakan;
+use App\Models\Sensor;
 
 class ControlController extends Controller
 {
@@ -41,5 +42,24 @@ class ControlController extends Controller
         $pakan->save();
 
         return redirect()->back()->with('success', 'Data pakan berhasil diperbarui');
+    }
+
+    public function sendPakan()
+    {
+        $dataJam = Pakan::select('jam_pertama', 'jam_kedua', 'jam_ketiga')->get();
+        return response()->json($dataJam);
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'suhu' => 'required|numeric',
+        ]);
+
+        $temperature = new Sensor();
+        $temperature->suhu = $request->suhu;
+        $temperature->save();
+
+        return response()->json(['message' => 'Data suhu disimpan'], 201);
     }
 }
