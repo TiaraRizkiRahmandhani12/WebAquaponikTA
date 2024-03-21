@@ -2,6 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
+    {{-- JANGAN DIHAPUS DULU --}}
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -29,6 +30,35 @@
                         <br>
                         <button type="submit" class="btn btn-success">Success</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" action="{{ route('save-switch-pakan') }}">
+                        @csrf
+                        @for ($i = 1; $i <= 14; $i++)
+                            <!-- Switch {{ $i }} -->
+                            <div class="custom-control custom-switch mb-3">
+                                <input type="hidden" name="field_{{ $i }}" value="0">
+                                <!-- Hidden field for off state -->
+                                <input type="checkbox" class="custom-control-input" id="{{ $i }}"
+                                    name="field_{{ $i }}" value="1"
+                                    {{ isset($switchPakanData[$i]) && $switchPakanData[$i] ? 'checked' : '' }}>
+                                <!-- Checkbox for on state, check if 'jam_i' field is truthy -->
+                                <label class="custom-control-label" for="{{ $i }}">Switch
+                                    {{ $i }}</label>
+                            </div>
+                        @endfor
+                        <!-- Button to submit the form -->
+                        <button type="submit">Submit</button>
+                    </form>
+
+
                 </div>
             </div>
         </div>

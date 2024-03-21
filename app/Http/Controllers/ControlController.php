@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Pakan;
 use App\Models\Sensor;
+use App\Models\SwitchPakan;
 
 class ControlController extends Controller
 {
     public function index()
     {
         $pakan = Pakan::findOrFail(1);
-        return view('page.monitoring.control');
+        $switchPakanData = SwitchPakan::pluck('nilai', 'jam')->toArray();
+        return view('page.monitoring.control', compact('pakan', 'switchPakanData'));
     }
+
 
     public function updatePakan(Request $request, $id)
     {
@@ -50,16 +53,49 @@ class ControlController extends Controller
         return response()->json($dataJam);
     }
 
-    public function store(Request $request)
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'suhu' => 'required|numeric',
+    //     ]);
+
+    //     $temperature = new Sensor();
+    //     $temperature->suhu = $request->suhu;
+    //     $temperature->save();
+
+    //     return response()->json(['message' => 'Data suhu disimpan'], 201);
+    // }
+
+    public function switch_pakan(Request $request)
     {
-        $request->validate([
-            'suhu' => 'required|numeric',
-        ]);
+        // Loop through each field and update or create data in the database
+        for ($i = 1; $i <= 14; $i++) {
+            // Access the value of each field using request
+            $value = $request->input('field_' . $i, 0); // Default to 0 if not present
 
-        $temperature = new Sensor();
-        $temperature->suhu = $request->suhu;
-        $temperature->save();
+            // Find the existing record by 'jam' value
+            $switchPakan = SwitchPakan::where('jam', $i)->first();
 
-        return response()->json(['message' => 'Data suhu disimpan'], 201);
+            // If the record exists, update it; otherwise, create a new one
+            if ($switchPakan) {
+                $switchPakan->update(['nilai' => $value]);
+            } else {
+                SwitchPakan::create([
+                    'jam' => $i,
+                    'nilai' => $value,
+                ]);
+            }
+        }
+
+        return redirect()->back()->with('success', 'Data berhasil disimpan.');
+    }
+
+    public function send_pakan_switch()
+    {
+        // Ambil data dari model SwitchPakan
+        $data = SwitchPakan::pluck('nilai', 'jam')->toArray();
+
+        // Format data ke dalam JSON dan kirimkan sebagai respons
+        return response()->json($data);
     }
 }
