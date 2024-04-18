@@ -62,13 +62,128 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row-grafik" id="temperatureSection">
         <div class="col-12">
-            <div class="card">
+            <div class="card-grafik">
                 <div class="card-body">
-                    {{-- disini --}}
+                    <h5>Temperature</h5>
+                    <canvas id="temperatureChart" height="200"></canvas>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="row-grafik" id="phSection">
+        <div class="col-12">
+            <div class="card-grafik">
+                <div class="card-body">
+                    <h5>pH Level</h5>
+                    <canvas id="phChart" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-grafik" id="tdsSection">
+        <div class="col-12">
+            <div class="card-grafik">
+                <div class="card-body">
+                    <h5>TDS (Total Dissolved Solids)</h5>
+                    <canvas id="tdsChart" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-grafik" id="heightSection">
+        <div class="col-12">
+            <div class="card-grafik">
+                <div class="card-body">
+                    <h5>Pond Height</h5>
+                    <canvas id="heightChart" height="auto"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const labels = @json($labels);
+    const chartOptions = {
+        type: 'line',
+        options: {
+            scales: { y: { beginAtZero: false } },
+            responsive: false,
+            maintainAspectRatio: false
+        }
+    };
+
+    const tempChartCtx = document.getElementById('temperatureChart').getContext('2d');
+    const phChartCtx = document.getElementById('phChart').getContext('2d');
+    const tdsChartCtx = document.getElementById('tdsChart').getContext('2d');
+    const heightChartCtx = document.getElementById('heightChart').getContext('2d');
+
+    new Chart(tempChartCtx, {
+        ...chartOptions,
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Temperature (°C)',
+                data: @json($temperatures),
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        }
+    });
+
+    new Chart(phChartCtx, {
+        ...chartOptions,
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'pH Level',
+                data: @json($phLevels),
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        }
+    });
+
+    new Chart(tdsChartCtx, {
+        ...chartOptions,
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'TDS (ppm)',
+                data: @json($tdsLevels),
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        }
+    });
+
+    new Chart(heightChartCtx, {
+        ...chartOptions,
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Pond Height (cm)',
+                data: @json($heights),
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+            }]
+        }
+    });
+});
+
+window.onload = function() {
+    if (window.location.hash) {
+        const element = document.getElementById(window.location.hash.substring(1));
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+};
+</script>
 @endsection

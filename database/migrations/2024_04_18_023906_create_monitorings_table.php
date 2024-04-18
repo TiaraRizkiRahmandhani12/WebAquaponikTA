@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('switch_pakans', function (Blueprint $table) {
+        Schema::create('monitorings', function (Blueprint $table) {
             $table->id();
-            $table->time('jam');
-            $table->boolean('nilai');
+            $table->float('temperature');
+            $table->float('ph');
+            $table->float('tds');
+            $table->float('tinggi_air');
+            $table->boolean('status_pompa');
+            $table->boolean('status_pembuangan');
+            $table->float('sisa_pakan');
             $table->timestamps();
         });
     }
@@ -24,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('switch_pakans');
+        Schema::dropIfExists('monitorings');
     }
 };
