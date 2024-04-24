@@ -32,31 +32,37 @@
 
     <!-- CSS GRAFIK -->
     <style>
-    .row-grafik {
-        margin-right: -15px;
-        margin-left: -15px;
-    }
+        .row-grafik {
+            margin-right: -15px;
+            margin-left: -15px;
+        }
 
-    .card-grafik {
-        margin: 10px; /* Jarak antara kartu dan elemen di sekitarnya */
-        box-shadow: 0 2px 4px rgba(255,255,255); /* Optional: Menambahkan shadow untuk estetika */
-    }
+        .card-grafik {
+            margin: 10px;
+            /* Jarak antara kartu dan elemen di sekitarnya */
+            box-shadow: 0 2px 4px rgba(255, 255, 255);
+            /* Optional: Menambahkan shadow untuk estetika */
+        }
 
-    .card-body {
-        padding: 20px; /* Padding di dalam card */
-    }
+        .card-body {
+            padding: 20px;
+            /* Padding di dalam card */
+        }
 
-    .canvas-container {
-        padding: 10px; /* Padding di dalam kontainer canvas */
-        height: 200px; /* Tetapkan tinggi */
-        width: 100%; /* Lebar mengikuti kontainer */
-    }
+        .canvas-container {
+            padding: 10px;
+            /* Padding di dalam kontainer canvas */
+            height: 200px;
+            /* Tetapkan tinggi */
+            width: 100%;
+            /* Lebar mengikuti kontainer */
+        }
 
-    canvas {
-        width: 100% !important;
-        height: 100% !important;
-    }
-</style>
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
 
 </head>
 
@@ -75,12 +81,13 @@
                     <div class="profile-desc">
                         <div class="profile-pic">
                             <div class="count-indicator">
-                                <img class="img-xs rounded-circle " src="assets/images/faces/face15.jpg" alt="">
+                                <img class="img-xs rounded-circle" src="{{ asset(Storage::url(Auth::user()->foto)) }}"
+                                    alt="Profile Picture">
                                 <span class="count bg-success"></span>
                             </div>
                             <div class="profile-name">
-                                <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-                                <span>Gold Member</span>
+                                <h5 class="mb-0 font-weight-normal">{{ Auth::user()->name }}</h5>
+                                <span>{{ Auth::user()->status }}</span>
                             </div>
                         </div>
                         <a href="" id="profile-dropdown" data-toggle="dropdown"><i
@@ -157,6 +164,18 @@
                         <span class="menu-title">Device</span>
                     </a>
                 </li>
+                @auth
+                    @if (auth()->user()->status === 'Admin')
+                        <li class="nav-item menu-items">
+                            <a class="nav-link" href="{{ route('list.user') }}">
+                                <span class="menu-icon">
+                                    <i class="mdi mdi-chart-bar"></i>
+                                </span>
+                                <span class="menu-title">Data User</span>
+                            </a>
+                        </li>
+                    @endif
+                @endauth
             </ul>
         </nav>
         <!-- partial -->

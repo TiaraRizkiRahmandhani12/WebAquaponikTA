@@ -9,13 +9,6 @@ use App\Models\Sensor;
 
 class ControlController extends Controller
 {
-    public function index()
-    {
-        $pakan = Pakan::findOrFail(1);
-        return view('page.monitoring.control', compact('pakan'));
-    }
-
-
     public function updatePakan(Request $request, $id)
     {
         // Validasi input
