@@ -70,4 +70,15 @@ Route::get('/', [LoginController::class, 'index'])->name('root');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login-process', [LoginController::class, 'loginProcess'])->name('login.process');
 Route::get('/send-pakan', [ControlController::class, 'sendPakan'])->name('send.pakan');
+<<<<<<< HEAD
 Route::get('/save-sensor-data', [MonitoringController::class, 'saveSensorData']);
+=======
+Route::post('/save-monitoring-data', [DashboardController::class, 'saveMonitoringData']);
+
+Route::get('/device-view', [DeviceController::class, 'index'])->name('device');
+
+Route::get('/profile-view', [ProfileController::class, 'index'])->name('profile');
+Route::get('/profile-change-password', [ProfileController::class, 'changePassword'])->name('change.pswd');
+
+Route::post('/profile', [ProfileController::class, 'store'])->name('storeProfile');
+>>>>>>> ff9e9ed07c44c11b76e60ea2977773d57899955c
