@@ -34,6 +34,7 @@ Route::get('/analisis-view', [AnalisisController::class, 'index'])->name('analis
 Route::get('/control-view', [ControlController::class, 'index'])->name('control');
 Route::post('/pakan/update/{id}', [ControlController::class, 'updatePakan'])->name('pakan.update');
 Route::get('/send-pakan', [ControlController::class, 'sendPakan'])->name('send.pakan');
+Route::post('/save-monitoring-data', [DashboardController::class, 'saveMonitoringData']);
 
 Route::get('/device-view', [DeviceController::class, 'index'])->name('device');
 

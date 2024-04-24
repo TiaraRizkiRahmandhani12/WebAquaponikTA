@@ -44,7 +44,7 @@
 <body>
 
     <div class="login-container">
-        {{-- <div class="card">
+        <div class="card">
             <div class="card-body login-form">
                 <h2 class="text-center mb-4">Login</h2>
                 <form action="{{ route('login.process') }}" method="post">
@@ -72,7 +72,7 @@
                     </div>
                 </form>
             </div>
-        </div> --}}
+        </div>
 
         <!-- New Card with Button -->
         <div class="card card-button">
