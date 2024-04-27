@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    public function index()
+    {
+        return view('page.auth.login');
+    }
+
     public function loginProcess(Request $request)
     {
         $request->validate([
@@ -22,13 +27,13 @@ class LoginController extends Controller
         if (Auth::attempt($data)) {
             return redirect()->route('dashboard');
         } else {
-            return redirect()->route('login')->with('error', 'Username atau Password Salah');
+            return redirect()->route('root')->with('error', 'Username atau Password Salah');
         }
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login')->with('success', 'Kamu berhasil logout');
+        return redirect()->route('root')->with('success', 'Kamu berhasil logout');
     }
 }
