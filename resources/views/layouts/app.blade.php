@@ -101,7 +101,7 @@
                                     </div>
                                 </div>
                                 <div class="preview-item-content">
-                                    <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
+                                    <p class="preview-subject ellipsis mb-1 text-small">Profile</p>
                                 </div>
                             </a>
                             <div class="dropdown-divider"></div>
