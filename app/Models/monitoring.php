@@ -17,7 +17,7 @@ class monitoring extends Model
         'tds',
         'tinggi_air',
         'status_pompa',
-        'status_pembuangan'
-        // 'sisa_pakan',
+        'status_pembuangan',
+        'sisa_pakan',
     ];
 }
