@@ -9,11 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('controls', function (Blueprint $table) {
+        Schema::create('datasensor', function (Blueprint $table) {
             $table->id();
+            $table->float('tds');
             $table->float('suhu');
+            $table->float('jarak_air');
+            $table->float('ph_air');
+            $table->float('jarak_pakan');
             $table->timestamps();
         });
     }
@@ -23,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('controls');
+        Schema::dropIfExists('datasensors');
     }
 };

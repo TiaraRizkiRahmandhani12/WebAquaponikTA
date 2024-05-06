@@ -78,3 +78,5 @@ Route::post('/login-process', [LoginController::class, 'loginProcess'])->name('l
 
 Route::get('/send-pakan', [ControlController::class, 'sendPakan'])->name('send.pakan');
 Route::get('/save-sensor-data', [ControlController::class, 'saveSensorData']);
+Route::get('/store-data', [ControlController::class, 'store']);
+Route::get('/kedua', [ControlController::class, 'kedua']);
