@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Pakan;
 use App\Models\monitoring;
+use App\Models\Datasensor;
 use App\Notifications\TelegramNotification;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\DB;
 
 class ControlController extends Controller
 {
@@ -89,34 +91,85 @@ class ControlController extends Controller
     //     }
     // }
 
-    public function saveSensorData(Request $request)
+    // public function saveSensorData(Request $request)
+    // {
+    //     $token = env('TELEGRAM_BOT_TOKEN');
+    //     // Mendapatkan data dari permintaan
+    //     $data = $request->all();
+
+    //     // Menghitung status pompa dan pembuangan
+    //     $status_pompa = $data['tinggi_air'] < 10 ? 0 : 1;
+    //     $status_pembuangan = $data['tinggi_air'] < 10 ? 0 : 1;
+
+    //     // Menyimpan data sensor ke dalam database
+    //     $monitoring = Monitoring::create([
+    //         'temperature' => $data['temperature'],
+    //         'ph' => $data['ph'],
+    //         'tds' => $data['tds'],
+    //         'tinggi_air' => $data['tinggi_air'],
+    //         'sisa_pakan' => $data['sisa_pakan'],
+    //         'status_pompa' => $status_pompa,
+    //         'status_pembuangan' => $status_pembuangan,
+    //     ]);
+
+    //     // Mengecek kondisi dan mengirim notifikasi jika diperlukan
+    //     if ($monitoring) {
+    //         if (
+    //             $monitoring->temperature < 25 || $monitoring->temperature > 30 || $monitoring->ph < 6 || $monitoring->ph > 7 || $monitoring->tds < 72 || $monitoring->tds > 100
+    //         ) {
+    //             Notification::send($monitoring, new TelegramNotification());
+    //         }
+    //         return response()->json(['message' => 'Data sensor berhasil disimpan'], 200);
+    //     } else {
+    //         return response()->json(
+    //             ['message' => 'Gagal menyimpan data sensor'],
+    //             500
+    //         );
+    //     }
+    // }
+
+    public function store(Request $request)
     {
-        $token = env('TELEGRAM_BOT_TOKEN');
-        // Mendapatkan data dari permintaan
-        $data = $request->all();
+        if ($request->has(['tdsValue', 'suhu', 'jarakAir', 'phAir', 'jarakPakan'])) {
+            $var1 = $request->tdsValue;
+            $var2 = $request->suhu;
+            $var3 = $request->jarakAir;
+            $var4 = $request->phAir;
+            $var5 = $request->jarakPakan;
 
-        // Menghitung status pompa dan pembuangan
-        $status_pompa = $data['tinggi_air'] < 10 ? 0 : 1;
-        $status_pembuangan = $data['tinggi_air'] < 10 ? 0 : 1;
+            Monitoring::create([
+                'tds' => $var1,
+                'temperature' => $var2,
+                'tinggi_air' => $var3,
+                'ph' => $var4,
+                'sisa_pakan' => $var5
+            ]);
 
-        // Menyimpan data sensor ke dalam database
-        $monitoring = Monitoring::create([
-            'temperature' => $data['temperature'],
-            'ph' => $data['ph'],
-            'tds' => $data['tds'],
-            'tinggi_air' => $data['tinggi_air'],
-            'sisa_pakan' => $data['sisa_pakan'],
-            'status_pompa' => $status_pompa,
-            'status_pembuangan' => $status_pembuangan,
-        ]);
+            return response()->json(['message' => 'Data sensor berhasil disimpan'], 200);
+        } else {
+            return response()->json(
+                ['message' => 'Gagal menyimpan data sensor'],
+                500
+            );
+        }
+    }
 
-        // Mengecek kondisi dan mengirim notifikasi jika diperlukan
-        if ($monitoring) {
-            if (
-                $monitoring->temperature < 25 || $monitoring->temperature > 30 || $monitoring->ph < 6 || $monitoring->ph > 7 || $monitoring->tds < 72 || $monitoring->tds > 100
-            ) {
-                Notification::send($monitoring, new TelegramNotification());
-            }
+    public function kedua(Request $request)
+    {
+        if ($request->has(['tdsValue', 'suhu', 'jarakAir', 'phAir', 'jarakPakan'])) {
+            $var1 = $request->tdsValue;
+            $var2 = $request->suhu;
+            $var3 = $request->jarakAir;
+            $var4 = $request->phAir;
+            $var5 = $request->jarakPakan;
+            Datasensor::create([
+                'tds' => $var1,
+                'suhu' => $var2,
+                'jarak_air' => $var3,
+                'ph_air' => $var4,
+                'jarak_pakan' => $var5
+            ]);
+
             return response()->json(['message' => 'Data sensor berhasil disimpan'], 200);
         } else {
             return response()->json(

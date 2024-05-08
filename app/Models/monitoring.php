@@ -20,6 +20,10 @@ class monitoring extends Model
         'tinggi_air',
         'status_pompa',
         'status_pembuangan',
+//<<<<<<< HEAD
         'sisa_pakan',
+//=======
+        'sisa_pakan'
+//>>>>>>> bf2af849396b4aa54156de287113e900ee8258c2
     ];
 }
