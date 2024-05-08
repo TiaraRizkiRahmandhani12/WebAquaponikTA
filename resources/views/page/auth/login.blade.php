@@ -8,15 +8,15 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
-    .login-page {
-        background-image: url('assets/images/auth/dark.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
+    <style>
+        .login-page {
+            background-image: url('assets/images/auth/dark.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
 
-    .centered-image {
-        width: 150px;
+        .centered-image {
+            width: 150px;
             height: 150px;
             display: block;
             margin: 0 auto 20px;
@@ -40,66 +40,87 @@
             justify-content: flex-start;
             /* Menaruh konten di tengah kotak */
         }
+
         .login-box {
-            margin-top: 100px !important; /* Menggunakan !important untuk memastikan gaya ini diutamakan */
-            margin-left: 85px !important; /* Menggunakan !important untuk memastikan gaya ini diutamakan */
+            margin-top: 100px !important;
+            /* Menggunakan !important untuk memastikan gaya ini diutamakan */
+            margin-left: 85px !important;
+            /* Menggunakan !important untuk memastikan gaya ini diutamakan */
         }
 
         .input-group.custom {
-            margin-top: 40px; /* Sesuaikan dengan seberapa jauh Anda ingin menggeser elemen input ke bawah */
+            margin-top: 40px;
+            /* Sesuaikan dengan seberapa jauh Anda ingin menggeser elemen input ke bawah */
             margin-right: 60px;
         }
 
         .input-group.custom input.form-control {
             margin-top: 10px;
-            width: 70%; /* Mengatur lebar input ke 100% dari kotak input */
-            height: 40px; /* Mengatur tinggi input */
-            border: 2px solid #FFFFFF; /* Mengatur warna border input */
-            border-radius: 5px; /* Mengatur border radius input */
+            width: 70%;
+            /* Mengatur lebar input ke 100% dari kotak input */
+            height: 40px;
+            /* Mengatur tinggi input */
+            border: 2px solid #FFFFFF;
+            /* Mengatur warna border input */
+            border-radius: 5px;
+            /* Mengatur border radius input */
         }
 
         .input-group.custom input.form-control::placeholder {
-            color: #9a9a9a; /* Mengatur warna teks placeholder */
+            color: #9a9a9a;
+            /* Mengatur warna teks placeholder */
         }
 
         .input-group.custom .input-group-text {
-            background-color: #FFFFFF; /* Mengatur warna latar belakang ikon input */
-            border: 1px solid #FFFFFF; /* Mengatur border ikon input */
-            border-radius: 20px; /* Mengatur border radius ikon input */
-            margin-right: 10px; /* Menggeser ikon ke kiri sejauh 10px */
+            background-color: #FFFFFF;
+            /* Mengatur warna latar belakang ikon input */
+            border: 1px solid #FFFFFF;
+            /* Mengatur border ikon input */
+            border-radius: 20px;
+            /* Mengatur border radius ikon input */
+            margin-right: 10px;
+            /* Menggeser ikon ke kiri sejauh 10px */
         }
 
         .input-group.custom .input-group-text i {
-            color: #000000; /* Mengatur warna ikon input */
+            color: #000000;
+            /* Mengatur warna ikon input */
         }
 
-        .input-group.custom + .input-group.custom {
-            margin-top: 10px; /* Sesuaikan jarak antara dua kotak input di sini */
+        .input-group.custom+.input-group.custom {
+            margin-top: 10px;
+            /* Sesuaikan jarak antara dua kotak input di sini */
         }
 
-        .custom-control.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-            background-color: #16425C; /* Ganti dengan warna yang Anda inginkan */
+        .custom-control.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+            background-color: #16425C;
+            /* Ganti dengan warna yang Anda inginkan */
             border: 2px solid #16425C;
             font-size: 12px !important;
-            
+
         }
 
-        .custom-control.custom-checkbox .custom-control-input:not(:checked) ~ .custom-control-label::before {
-            border: 2px solid #16425C; /* Warna tepi garis ketika belum dicentang */
+        .custom-control.custom-checkbox .custom-control-input:not(:checked)~.custom-control-label::before {
+            border: 2px solid #16425C;
+            /* Warna tepi garis ketika belum dicentang */
         }
 
         .centered-image {
             display: block;
-            margin: 0px auto 0; /* Mengatur jarak atas antara gambar dan elemen di atasnya */
+            margin: 0px auto 0;
+            /* Mengatur jarak atas antara gambar dan elemen di atasnya */
         }
 
         .custom-control.custom-checkbox {
-            margin-top: 15px; /* Sesuaikan dengan jarak bawah yang Anda inginkan */
+            margin-top: 15px;
+            /* Sesuaikan dengan jarak bawah yang Anda inginkan */
         }
 
         .forgot-password a {
-            font-size: 14px; /* Ganti dengan ukuran font yang Anda inginkan */
-            color: #000000; /* Ganti dengan warna yang Anda inginkan */
+            font-size: 14px;
+            /* Ganti dengan ukuran font yang Anda inginkan */
+            color: #000000;
+            /* Ganti dengan warna yang Anda inginkan */
             /* Contoh lain:
             font-weight: bold; // Untuk membuat teks menjadi tebal
             text-decoration: underline; // Untuk menambahkan garis bawah
@@ -108,15 +129,17 @@
 
         .forgot-password {
             font-size: 10px !important;
-            margin-bottom: 40px; /* Sesuaikan dengan jarak bawah yang Anda inginkan */
+            margin-bottom: 40px;
+            /* Sesuaikan dengan jarak bawah yang Anda inginkan */
             margin-top: 15px;
         }
 
         .btn.btn-primary.btn-lg.btn-block {
-            background-color: #16425C; /* Ganti dengan warna latar belakang yang diinginkan */
-            border: 2px solid #16425C; /* Ganti dengan warna border yang diinginkan dan ketebalan yang diinginkan */
+            background-color: #16425C;
+            /* Ganti dengan warna latar belakang yang diinginkan */
+            border: 2px solid #16425C;
+            /* Ganti dengan warna border yang diinginkan dan ketebalan yang diinginkan */
         }
-
     </style>
 </head>
 
@@ -132,34 +155,35 @@
                         <form action="{{ route('login.process') }}" method="POST">
                             @csrf
                             @if (Session::get('fail'))
-                            <div class="alert alert-danger">
-                                {{ Session::get('fail') }}
+                                <div class="alert alert-danger">
+                                    {{ Session::get('fail') }}
 
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
                             @endif
 
                             <div class="input-group custom">
-                                <input type="text" class="form-control form-control-lg" placeholder="Email/Username" name="login_id" value="{{ old('login_id') }}">
+                                <input type="text" class="form-control form-control-lg" placeholder="username"
+                                    name="username" value="{{ old('username') }}">
                                 <div class="input-group-append custom">
                                 </div>
                             </div>
-                            @error('login_id')
+                            @error('username')
                                 <div class="d-block text-danger" style="margin-top: -25px;margin-bottom:15px;">
-                                    {{ $message}}
+                                    {{ $message }}
                                 </div>
                             @enderror
                             <div class="input-group custom">
-                                <input type="password" class="form-control form-control-lg" placeholder="**********"
-                                name="password">
+                                <input type="password" class="form-control form-control-lg" placeholder="Password"
+                                    name="password">
                                 <div class="input-group-append custom">
                                 </div>
                             </div>
                             @error('password')
                                 <div class="d-block text-danger" style="margin-top: -25px;margin-bottom:15px;">
-                                    {{ $message}}
+                                    {{ $message }}
                                 </div>
                             @enderror
                             <div class="row pb-30">
@@ -181,9 +205,8 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="input-group mb-0">
-											<input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
+                                        <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
                                     </div>
-
                                 </div>
                             </div>
                         </form>
