@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-sm-4 grid-margin">
+        <div class="col-sm-4 grid-margin dynamic-content">
             <a href="{{ route('dashboard') }}#temperatureSection" style="text-decoration: none; color: inherit;">
                 <div class="card">
                     <div class="card-body">
@@ -27,7 +27,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-sm-4 grid-margin">
+        <div class="col-sm-4 grid-margin dynamic-content">
             <a href="{{ route('dashboard') }}#phSection" style="text-decoration: none; color: inherit;">
                 <div class="card">
                     <div class="card-body">
@@ -51,7 +51,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-sm-4 grid-margin">
+        <div class="col-sm-4 grid-margin dynamic-content">
             <a href="{{ route('dashboard') }}#tdsSection" style="text-decoration: none; color: inherit;">
                 <div class="card">
                     <div class="card-body">
@@ -74,7 +74,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-sm-4 grid-margin">
+        <div class="col-sm-4 grid-margin dynamic-content">
             <div class="card">
                 <div class="card-body">
                     <div class="text-center center-text">
@@ -95,7 +95,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4 grid-margin">
+        <div class="col-sm-4 grid-margin dynamic-content">
             <a href="{{ route('dashboard') }}#heightSection" style="text-decoration: none; color: inherit;">
                 <div class="card">
                     <div class="card-body">
@@ -118,7 +118,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-sm-4 grid-margin">
+        <div class="col-sm-4 grid-margin dynamic-content">
             <a href="{{ route('control') }}" style="text-decoration: none; color: inherit;">
                 <div class="card">
                     <div class="card-body">
@@ -156,7 +156,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-sm-4 grid-margin">
+        <div class="col-sm-4 grid-margin dynamic-content">
             <div class="card">
                 <div class="card-body">
                     <div class="text-center center-text">
@@ -177,7 +177,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4 grid-margin">
+        <div class="col-sm-4 grid-margin dynamic-content">
             <div class="card">
                 <div class="card-body">
                     <div class="text-center center-text">
@@ -199,7 +199,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4 grid-margin">
+        <div class="col-sm-4 grid-margin dynamic-content">
             <div class="card">
                 <div class="card-body">
                     <div class="text-center center-text">
@@ -243,7 +243,7 @@
                 method: "GET",
                 success: function(response) {
                     // Update dynamic content with the response
-                    $('#dynamic-content').html(response);
+                    $('.dynamic-content').html(response);
                 },
                 error: function(xhr, status, error) {
                     console.error(error);
