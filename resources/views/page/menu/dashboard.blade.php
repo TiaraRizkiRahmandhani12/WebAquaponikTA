@@ -4,7 +4,7 @@
 @section('content')
     <div class="row">
         <div class="col-sm-4 grid-margin">
-            <a href="{{ route('analisis') }}#temperatureSection" style="text-decoration: none; color: inherit;">
+            <a href="{{ route('dashboard') }}#temperatureSection" style="text-decoration: none; color: inherit;">
                 <div class="card">
                     <div class="card-body">
                         <div class="text-center center-text">
@@ -28,7 +28,7 @@
             </a>
         </div>
         <div class="col-sm-4 grid-margin">
-            <a href="{{ route('analisis') }}#phSection" style="text-decoration: none; color: inherit;">
+            <a href="{{ route('dashboard') }}#phSection" style="text-decoration: none; color: inherit;">
                 <div class="card">
                     <div class="card-body">
                         <div class="text-center center-text">
@@ -52,7 +52,7 @@
             </a>
         </div>
         <div class="col-sm-4 grid-margin">
-            <a href="{{ route('analisis') }}#tdsSection" style="text-decoration: none; color: inherit;">
+            <a href="{{ route('dashboard') }}#tdsSection" style="text-decoration: none; color: inherit;">
                 <div class="card">
                     <div class="card-body">
                         <div class="text-center center-text">
@@ -96,7 +96,7 @@
             </div>
         </div>
         <div class="col-sm-4 grid-margin">
-            <a href="{{ route('analisis') }}#heightSection" style="text-decoration: none; color: inherit;">
+            <a href="{{ route('dashboard') }}#heightSection" style="text-decoration: none; color: inherit;">
                 <div class="card">
                     <div class="card-body">
                         <div class="text-center center-text">
@@ -231,4 +231,30 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Function to fetch and update dynamic content
+        function updateDynamicContent() {
+            $.ajax({
+                url: "{{ route('dashboard') }}", // Endpoint URL to fetch dynamic content
+                method: "GET",
+                success: function(response) {
+                    // Update dynamic content with the response
+                    $('#dynamic-content').html(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        }
+
+        // Update dynamic content on page load
+        $(document).ready(function() {
+            updateDynamicContent(); // Initial call to fetch dynamic content
+            setInterval(updateDynamicContent, 1000); // Set interval to update content every 5 seconds
+        });
+    </script>
 @endsection
