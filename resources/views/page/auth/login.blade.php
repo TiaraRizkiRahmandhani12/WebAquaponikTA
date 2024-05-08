@@ -49,9 +49,9 @@
         }
 
         .input-group.custom {
-            margin-top: 40px;
+            margin-top: 50px;
             /* Sesuaikan dengan seberapa jauh Anda ingin menggeser elemen input ke bawah */
-            margin-right: 60px;
+            margin-right: 50px;
         }
 
         .input-group.custom input.form-control {
