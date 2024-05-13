@@ -9773,6 +9773,7 @@ input[type="button"].btn-block {
   .dropdown-toggle:empty::after {
     margin-left: 0; }
 
+    /* dropdownmenu */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -9787,7 +9788,7 @@ input[type="button"].btn-block {
   color: #ffffff;
   text-align: left;
   list-style: none;
-  background-color: #191c24;
+  background-color: #1a2b34;
   background-clip: padding-box;
   border: 1px solid #2c2e33;
   border-radius: 0.25rem; }
@@ -11399,7 +11400,8 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #191c24;
+  /* tengah */
+  background-color: #16425c; 
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }
@@ -12862,6 +12864,7 @@ button.bg-light:hover,
 button.bg-light:focus {
   background-color: #e6e6e6 !important; }
 
+/* lingkaran titik3 */
 .bg-dark {
   background-color: #0d0d0d !important; }
 
@@ -15209,8 +15212,9 @@ a.text-dark:hover, a.text-dark:focus {
 .text-body {
   color: #ffffff !important; }
 
-.text-muted, .preview-list .preview-item .preview-item-content p .content-category {
-  color: #6c7293 !important; }
+/* text last update */
+  .text-muted, .preview-list .preview-item .preview-item-content p .content-category {
+  color: #ee04ee !important; }
 
 .text-black-50 {
   color: rgba(0, 0, 0, 0.5) !important; }
@@ -15716,7 +15720,7 @@ body,
 html {
   overflow-x: hidden;
   padding-right: 0 !important;
-  background-color: #191c24; }
+  background-color: #1a2b34; }
 
 *:-moz-full-screen,
 *:-webkit-full-screen,
@@ -16922,6 +16926,7 @@ code {
 .form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
 .tt-query,
+/* box pencarian */
 .tt-hint {
   border: 1px solid #2c2e33;
   height: calc(2.25rem + 2px);
@@ -19036,7 +19041,7 @@ body.avgrund-active {
     color: #ffffff; }
 
 .fc-external-events .fc-event {
-  background: #191c24;
+  background: #1a2b34;
   color: #ffffff;
   border-width: 0 0 0 4px;
   padding: 16px;
@@ -20349,7 +20354,7 @@ div.tagsinput {
 /* Navbar */
 .navbar {
   font-weight: normal;
-  background: #191c24;
+  background: #1a2b34;
   left: 244px;
   transition: left 0.25s ease;
   -webkit-transition: left 0.25s ease;
@@ -20363,7 +20368,7 @@ div.tagsinput {
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #191c24;
+    background: #1a2b34;
     width: 244px;
     height: 70px; }
     @media (max-width: 991px) {
@@ -20459,7 +20464,7 @@ div.tagsinput {
       .navbar .navbar-menu-wrapper .count-indicator .count-number {
         position: absolute;
         border-radius: 100%;
-        border: 2px solid #191c24; }
+        border: 2px solid #1a2b34; }
       .navbar .navbar-menu-wrapper .count-indicator .count-symbol {
         top: 17px;
         right: -3px;
@@ -20600,7 +20605,7 @@ div.tagsinput {
             margin-left: 0;
             margin-right: auto; } }
     .navbar .navbar-menu-wrapper .search input {
-      background: #191c24;
+      background: #1a2b34;
       padding: 13px 20px 11px 20px;
       border: 1px solid #2c2e33; }
       .navbar .navbar-menu-wrapper .search input::placeholder {
@@ -20632,7 +20637,7 @@ div.tagsinput {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 70px);
-  background: #191c24;
+  background: #1a2b34;
   font-weight: normal;
   padding: 0;
   width: 244px;
@@ -20646,7 +20651,7 @@ div.tagsinput {
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #191c24;
+    background: #1a2b34;
     width: 244px;
     height: 70px; }
     @media (max-width: 991px) {
@@ -20734,7 +20739,8 @@ div.tagsinput {
               content: "\f140";
               font-size: inherit;
               color: inherit; }
-        .sidebar .nav .nav-item .nav-link .menu-title {
+        /* menu item */
+              .sidebar .nav .nav-item .nav-link .menu-title {
           color: inherit;
           display: inline-block;
           font-size: 0.9375rem;
@@ -20744,7 +20750,7 @@ div.tagsinput {
           margin-right: auto;
           margin-left: 1rem; }
       .sidebar .nav .nav-item.active > .nav-link {
-        background: #0f1015;
+        background: #1a2b34;
         position: relative; }
         .sidebar .nav .nav-item.active > .nav-link:before {
           content: "";
@@ -20808,6 +20814,8 @@ div.tagsinput {
             .rtl .sidebar .nav .nav-item.profile .profile-desc .profile-name {
               margin-left: 0;
               margin-right: 1rem; }
+
+              /* nama admin */
             .sidebar .nav .nav-item.profile .profile-desc .profile-name span {
               font-size: 12px;
               color: #6c7293;
@@ -20823,7 +20831,7 @@ div.tagsinput {
               .sidebar .nav .nav-item.profile .profile-desc .profile-pic .count-indicator .count-number {
                 position: absolute;
                 border-radius: 100%;
-                border: 2px solid #191c24; }
+                border: 2px solid #1a2b34; }
               .sidebar .nav .nav-item.profile .profile-desc .profile-pic .count-indicator .count-symbol {
                 top: 17px;
                 right: -3px;
@@ -20874,8 +20882,10 @@ div.tagsinput {
       .sidebar .nav .nav-item.nav-category {
         padding: 0.5rem 1.188rem;
         line-height: 1; }
+
+        /* tulisan */
         .sidebar .nav .nav-item.nav-category .nav-link {
-          color: #6c7293;
+          color: #00923f;
           font-weight: 500;
           font-size: 14px;
           font-weight: 500;
@@ -20918,7 +20928,7 @@ div.tagsinput {
         .sidebar .nav.sub-menu .nav-item:hover {
           background: transparent; }
     .sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link {
-      background: #0f1015;
+      background: #1a2b34;
       color: #ffffff; }
     .sidebar .nav .menu-items:nth-child(5n+1) .nav-link .menu-icon i {
       color: #0090e7; }
@@ -21032,7 +21042,7 @@ div.tagsinput {
           display: flex;
           -webkit-align-items: center;
           align-items: center;
-          background: #0f1015;
+          background: #1a2b34;
           padding: 0.5rem 1.4rem;
           left: 70px;
           position: absolute;
@@ -21043,7 +21053,7 @@ div.tagsinput {
           z-index: 1;
           line-height: 1.8; }
           .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
-            background: #0f1015; }
+            background: #1a2b34; }
           .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
             left: auto;
             right: 70px;
@@ -21054,13 +21064,13 @@ div.tagsinput {
         .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
           display: block;
           padding: .5rem 0;
-          background: #0f1015;
+          background: #1a2b34;
           border-radius: 0 0 5px 0;
           position: absolute;
           left: 70px;
           width: 190px; }
           .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse, .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
-            background: #191c24; }
+            background: #1a2b34; }
           .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse, .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
             left: auto;
             right: 70px;
@@ -21135,7 +21145,7 @@ div.tagsinput {
       width: 100%; } }
 
 .content-wrapper {
-  background: #000000;
+  background: #4a6464;
   padding: 1.875rem 1.75rem;
   width: 100%;
   -webkit-flex-grow: 1;
