@@ -3,30 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\monitoring;
+use App\Models\Datasensor;
+use Carbon\Carbon;
 
 class AnalisisController extends Controller
 {
     public function analisisView()
     {
-        $now = now();
-        $twoDaysAgo = $now->subDays(2);
+        $twoWeeksAgo = Carbon::now()->subWeeks(2);
 
-        $records = Monitoring::where('created_at', '>=', $twoDaysAgo)
-            ->whereRaw("HOUR(created_at) % 2 = 0") // Filter for every two hours
-            ->orderBy('created_at', 'asc')
-            ->get();
+        // Ambil data dari 2 minggu terakhir
+        $records = Datasensor::where('created_at', '>=', $twoWeeksAgo)->get();
 
-        // Prepare data for chart
-        $labels = $records->map(function ($record) {
+        // Ambil data untuk 7 hari terakhir sebagai label
+        $lastWeekRecords = Datasensor::where('created_at', '>=', Carbon::now()->subWeek())
+            ->get(['created_at'])
+            ->take(7);
+
+        // Siapkan data untuk chart
+        $labels = $lastWeekRecords->map(function ($record) {
             return $record->created_at->format('d M H:i');
         });
 
-        $temperatures = $records->pluck('temperature');
-        $phLevels = $records->pluck('ph');
-        $tdsLevels = $records->pluck('tds');
-        $heights = $records->pluck('tinggi_air');
+        $suhu = $records->pluck('suhu');
+        $tdsValue = $records->pluck('tdsValue');
+        $jarakAir = $records->pluck('jarakAir');
+        $jarakPakan = $records->pluck('jarakPakan');
+        $phAir = $records->pluck('phAir');
 
-        return view('page.menu.analisis', compact('labels', 'temperatures', 'phLevels', 'tdsLevels', 'heights'));
+        return view('page.menu.analisis', compact('labels', 'suhu', 'tdsValue', 'jarakAir', 'jarakPakan', 'phAir'));
     }
 }

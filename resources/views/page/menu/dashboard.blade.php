@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                 <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                    <h2 class="mb-0">{{ $data->temperature }}</h2>
+                                    <h2 class="mb-0">{{ $data->suhu }}</h2>
                                     <p class="text-success ml-2 mb-0 font-weight-medium">°C</p>
                                 </div>
                                 <h6 class="text-muted font-weight-normal">Last Updated {{ $data->created_at }}</h6>
@@ -37,7 +37,7 @@
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                 <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                    <h2 class="mb-0">{{ $data->ph }}</h2>
+                                    <h2 class="mb-0">{{ $data->phAir }}</h2>
                                     <p class="text-success ml-2 mb-0 font-weight-medium"></p>
                                 </div>
                                 <h6 class="text-muted font-weight-normal">Last Updated {{ $data->created_at }}</h6>
@@ -61,7 +61,7 @@
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                 <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                    <h2 class="mb-0">{{ $data->tds }}</h2>
+                                    <h2 class="mb-0">{{ $data->tdsValue }}</h2>
                                     <p class="text-success ml-2 mb-0 font-weight-medium">ppm</p>
                                 </div>
                                 <h6 class="text-muted font-weight-normal">Last Updated {{ $data->created_at }}</h6>
@@ -83,7 +83,7 @@
                     <div class="row">
                         <div class="col-8 col-sm-12 col-xl-8 my-auto">
                             <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                <h2 class="mb-0">{{ $data->sisa_pakan }}</h2>
+                                <h2 class="mb-0">{{ $data->jarakPakan }}</h2>
                                 <p class="text-success ml-2 mb-0 font-weight-medium">%</p>
                             </div>
                             <h6 class="text-muted font-weight-normal">Last Updated {{ $data->created_at }}</h6>
@@ -105,7 +105,7 @@
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                 <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                    <h2 class="mb-0">{{ $data->tinggi_air }}</h2>
+                                    <h2 class="mb-0">{{ $data->jarakAir }}</h2>
                                     <p class="text-success ml-2 mb-0 font-weight-medium">cm</p>
                                 </div>
                                 <h6 class="text-muted font-weight-normal">Last Updated {{ $data->created_at }}</h6>
