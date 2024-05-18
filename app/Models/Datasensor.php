@@ -9,5 +9,5 @@ class Datasensor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['tds', 'suhu', 'jarak_air', 'ph_air', 'jarak_pakan'];
+    protected $fillable = ['tdsValue', 'suhu', 'jarakAir', 'phAir', 'jarakPakan'];
 }

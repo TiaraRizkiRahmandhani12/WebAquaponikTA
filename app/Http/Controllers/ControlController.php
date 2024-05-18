@@ -163,11 +163,11 @@ class ControlController extends Controller
             $var4 = $request->phAir;
             $var5 = $request->jarakPakan;
             Datasensor::create([
-                'tds' => $var1,
+                'tdsValue' => $var1,
                 'suhu' => $var2,
-                'jarak_air' => $var3,
-                'ph_air' => $var4,
-                'jarak_pakan' => $var5
+                'jarakAir' => $var3,
+                'phAir' => $var4,
+                'jarakPakan' => $var5
             ]);
 
             return response()->json(['message' => 'Data sensor berhasil disimpan'], 200);
