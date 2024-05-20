@@ -48,6 +48,7 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('/dashboard', [DashboardController::class, 'dashboardView'])->name('dashboard');
+    Route::get('/latest-monitoring-data', [DashboardController::class, 'getData'])->name('get.data');
 
     Route::get('/analisis-view', [AnalisisController::class, 'analisisView'])->name('analisis');
 
@@ -58,7 +59,7 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::post('/change-password-process', [UserController::class, 'changePasswordProcess'])->name('change.pswd.process');
 
     Route::get('/control-view', [ControlController::class, 'controlView'])->name('control');
-    Route::get('/latest-monitoring-data', [ControlController::class, 'getLatestMonitoringData']);
+
 
     Route::post('/pakan/update/{id}', [ControlController::class, 'updatePakan'])->name('pakan.update');
 

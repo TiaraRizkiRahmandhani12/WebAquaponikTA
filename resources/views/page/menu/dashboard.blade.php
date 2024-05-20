@@ -157,29 +157,3 @@
             </a>
         </div>
     @endsection
-
-    @section('scripts')
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-            // Function to fetch and update dynamic content
-            function updateDynamicContent() {
-                $.ajax({
-                    url: "{{ route('dashboard') }}", // Endpoint URL to fetch dynamic content
-                    method: "GET",
-                    success: function(response) {
-                        // Update dynamic content with the response
-                        $('.dynamic-content').html(response);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(error);
-                    }
-                });
-            }
-
-            // Update dynamic content on page load
-            $(document).ready(function() {
-                updateDynamicContent(); // Initial call to fetch dynamic content
-                setInterval(updateDynamicContent, 1000); // Set interval to update content every 5 seconds
-            });
-        </script>
-    @endsection
