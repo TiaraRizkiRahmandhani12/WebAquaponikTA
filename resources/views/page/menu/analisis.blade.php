@@ -38,10 +38,11 @@
                             Download as JPG
                         </a>
                         <a class="dropdown-item custom-font-size" href="#">
-                            Download as PDF
-                        </a>
-                        <a class="dropdown-item custom-font-size" href="#">
                             Download as CSV
+                        </a>
+                        <a class="dropdown-item custom-font-size" href="#"
+                            onclick="downloadPDF('{{ $chart['id'] }}')">
+                            Download as PDF
                         </a>
                     </div>
                 </div>
@@ -98,13 +99,35 @@
             });
         });
 
+        function downloadPDF(chartId) {
+            window.location.href = "{{ route('download.pdf', ':chartId') }}".replace(':chartId', chartId);
+        }
+
+
         function downloadChartAsJPG(chartId) {
             const canvas = document.getElementById(chartId);
-            const image = canvas.toDataURL("image/jpeg", 1.0);
+            const ctx = canvas.getContext('2d');
+
+            // Create a temporary canvas to apply the background
+            const tempCanvas = document.createElement('canvas');
+            const tempCtx = tempCanvas.getContext('2d');
+
+            tempCanvas.width = canvas.width;
+            tempCanvas.height = canvas.height;
+
+            // Fill the background with white
+            tempCtx.fillStyle = 'white';
+            tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+
+            // Draw the original canvas over the white background
+            tempCtx.drawImage(canvas, 0, 0);
+
+            // Convert the temporary canvas to a JPEG image
+            const image = tempCanvas.toDataURL('image/jpeg', 1.0);
             const link = document.createElement('a');
             link.href = image;
             link.download = `${chartId}.jpg`;
-            link.click();
+            link.click();;
         }
     </script>
 @endforeach

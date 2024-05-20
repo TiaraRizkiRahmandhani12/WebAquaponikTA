@@ -21,6 +21,7 @@ use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DownloadController;
 // Route::get('/', [LoginController::class, 'index'])->name('root');
 // Route::get('/login', [LoginController::class, 'index'])->name('login');
 // Route::post('/login-process', [LoginController::class, 'loginProcess'])->name('login.process');
@@ -60,6 +61,9 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::get('/latest-monitoring-data', [ControlController::class, 'getLatestMonitoringData']);
 
     Route::post('/pakan/update/{id}', [ControlController::class, 'updatePakan'])->name('pakan.update');
+
+    Route::get('/download-view', [DownloadController::class, 'showDownloadPage'])->name('download.pdf.page');
+    Route::get('/download/{chartId}', [DownloadController::class, 'downloadData'])->name('download.pdf');
 });
 
 Route::middleware(['web', 'auth', 'admin'])->group(function () {

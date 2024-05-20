@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Datasensor;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class AnalisisController extends Controller
 {
@@ -30,7 +31,8 @@ class AnalisisController extends Controller
         $jarakAir = $records->pluck('jarakAir');
         $jarakPakan = $records->pluck('jarakPakan');
         $phAir = $records->pluck('phAir');
+        $created_at = $records->pluck('created_at');
 
-        return view('page.menu.analisis', compact('labels', 'suhu', 'tdsValue', 'jarakAir', 'jarakPakan', 'phAir'));
+        return view('page.menu.analisis', compact('labels', 'suhu', 'tdsValue', 'jarakAir', 'jarakPakan', 'phAir', 'created_at'));
     }
 }

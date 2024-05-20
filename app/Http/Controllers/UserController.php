@@ -47,6 +47,6 @@ class UserController extends Controller
 
     public function forgotPasswordView()
     {
-        return view('page.profile.forgot_password');
+        return view('page.forgot_password.forgot_password');
     }
 }
