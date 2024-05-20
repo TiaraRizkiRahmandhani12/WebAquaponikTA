@@ -62,9 +62,10 @@ Route::middleware(['web', 'auth'])->group(function () {
 
     Route::post('/pakan/update/{id}', [ControlController::class, 'updatePakan'])->name('pakan.update');
 
-    Route::get('/download-view', [DownloadController::class, 'showDownloadPage'])->name('download.pdf.page');
+    Route::get('/download-pdf-view', [DownloadController::class, 'showDownloadPage'])->name('download.pdf.page');
     Route::get('/download/{chartId}', [DownloadController::class, 'downloadData'])->name('download.pdf');
-    Route::get('/download/csv/{chartId}', [DownloadController::class, 'downloadCsv'])->name('download.csv');
+    Route::get('/download-csv-view', [DownloadController::class, 'DownloadCSV'])->name('download.csv.page');
+    Route::get('/download/csv/{chartId}', [DownloadController::class, 'downloadDataCSV'])->name('download.csv');
 });
 
 Route::middleware(['web', 'auth', 'admin'])->group(function () {
