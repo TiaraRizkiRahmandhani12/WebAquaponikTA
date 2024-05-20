@@ -44,4 +44,9 @@ class UserController extends Controller
 
         return redirect()->back()->with('success', 'Password berhasil diperbarui.');
     }
+
+    public function forgotPasswordView()
+    {
+        return view('page.profile.forgot_password');
+    }
 }

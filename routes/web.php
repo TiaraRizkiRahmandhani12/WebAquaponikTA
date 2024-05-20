@@ -80,3 +80,5 @@ Route::get('/send-pakan', [ControlController::class, 'sendPakan'])->name('send.p
 Route::get('/save-sensor-data', [ControlController::class, 'saveSensorData']);
 Route::get('/store-data', [ControlController::class, 'store']);
 Route::get('/kedua', [ControlController::class, 'kedua']);
+
+Route::get('/forgot-password-view', [UserController::class, 'forgotPasswordView'])->name('forgot.pswd');

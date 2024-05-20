@@ -156,105 +156,30 @@
                 </div>
             </a>
         </div>
-        <div class="col-sm-4 grid-margin dynamic-content">
-            <div class="card">
-                <div class="card-body">
-                    <div class="text-center center-text">
-                        <h5 style="font-size: 22px;">Status Pompa Alir</h5>
-                    </div>
-                    <div class="row">
-                        <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                            <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                {{ $data->status_pompa == 0 ? 'Off' : 'On' }}
-                                <p class="text-success ml-2 mb-0 font-weight-medium">cm</p>
-                            </div>
-                            <h6 class="text-muted font-weight-normal">Last Updated {{ $data->created_at }}</h6>
-                        </div>
-                        <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                            <i class="icon-lg bi bi-water text-primary ml-auto" style="color: white !important;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 grid-margin dynamic-content">
-            <div class="card">
-                <div class="card-body">
-                    <div class="text-center center-text">
-                        <h5 style="font-size: 22px;">Status Pembuangan Air</h5>
-                    </div>
-                    <div class="row">
-                        <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                            <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                {{ $data->status_pembuangan == 0 ? 'Off' : 'On' }}
-                                <p class="text-success ml-2 mb-0 font-weight-medium">cm</p>
-                            </div>
-                            <h6 class="text-muted font-weight-normal">Last Updated {{ $data->created_at }}</h6>
-                        </div>
-                        <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                            <i class="icon-lg bi bi-droplet-half text-primary ml-auto"
-                                style="color: white !important;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 grid-margin dynamic-content">
-            <div class="card">
-                <div class="card-body">
-                    <div class="text-center center-text">
-                        <h5 style="font-size: 22px;">Aerator</h5>
-                    </div>
-                    <div class="row">
-                        <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                            <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                <h2 class="mb-0">{{ $data->status_pompa }}</h2>
-                                <p class="text-success ml-2 mb-0 font-weight-medium">o</p>
-                            </div>
-                            <h6 class="text-muted font-weight-normal">Last Updated {{ $data->created_at }}</h6>
-                        </div>
-                        <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                            <i class="icon-lg bi bi-wind text-primary ml-auto" style="color: white !important;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @endsection
 
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    {{-- disini --}}
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+    @section('scripts')
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            // Function to fetch and update dynamic content
+            function updateDynamicContent() {
+                $.ajax({
+                    url: "{{ route('dashboard') }}", // Endpoint URL to fetch dynamic content
+                    method: "GET",
+                    success: function(response) {
+                        // Update dynamic content with the response
+                        $('.dynamic-content').html(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            }
 
-@section('scripts')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        // Function to fetch and update dynamic content
-        function updateDynamicContent() {
-            $.ajax({
-                url: "{{ route('dashboard') }}", // Endpoint URL to fetch dynamic content
-                method: "GET",
-                success: function(response) {
-                    // Update dynamic content with the response
-                    $('.dynamic-content').html(response);
-                },
-                error: function(xhr, status, error) {
-                    console.error(error);
-                }
+            // Update dynamic content on page load
+            $(document).ready(function() {
+                updateDynamicContent(); // Initial call to fetch dynamic content
+                setInterval(updateDynamicContent, 1000); // Set interval to update content every 5 seconds
             });
-        }
-
-        // Update dynamic content on page load
-        $(document).ready(function() {
-            updateDynamicContent(); // Initial call to fetch dynamic content
-            setInterval(updateDynamicContent, 1000); // Set interval to update content every 5 seconds
-        });
-    </script>
-@endsection
+        </script>
+    @endsection

@@ -14,17 +14,17 @@
 
     @php
         $charts = [
-            ['title' => 'Trend Suhu - Last 7 Days', 'id' => 'suhuchart', 'data' => $suhu],
-            ['title' => 'Trend tdsValue - Last 7 Days', 'id' => 'tdsValuechart', 'data' => $tdsValue],
-            ['title' => 'Trend Jarak Air - Last 7 Days', 'id' => 'jarakairchart', 'data' => $jarakAir],
-            ['title' => 'Trend Jarak Pakan - Last 7 Days', 'id' => 'jarakpakanchart', 'data' => $jarakPakan],
-            ['title' => 'Trend pH - Last 7 Days', 'id' => 'phchart', 'data' => $phAir],
+            ['title' => 'Trend Suhu - Last 2 Weeks', 'id' => 'suhuchart', 'data' => $suhu],
+            ['title' => 'Trend TDS - Last 2 Weeks', 'id' => 'tdsValuechart', 'data' => $tdsValue],
+            ['title' => 'Trend Jarak Air - Last 2 Weeks', 'id' => 'jarakairchart', 'data' => $jarakAir],
+            ['title' => 'Trend Jarak Pakan - Last 2 Weeks', 'id' => 'jarakpakanchart', 'data' => $jarakPakan],
+            ['title' => 'Trend pH - Last 2 Weeks', 'id' => 'phchart', 'data' => $phAir],
         ];
     @endphp
 
     @foreach ($charts as $chart)
         <div class="card bg-grey pd-20 mb-30 chart-card">
-            <div style="width: 80%; margin: auto; text-align: left;">
+            <div style="width: 80%; margin: auto; text-align: right;">
                 <h3 class="heading-title">{{ $chart['title'] }}</h3>
 
                 <div class="dropdown">
@@ -33,25 +33,15 @@
                         Other
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ $chart['id'] }}">
-                        <a class="dropdown-item custom-font-size" href="#">
-                            <img src="assets\images\analisis\edit.png" alt="Icon" class="icon">
-                            Edit
-                        </a>
-                        <a class="dropdown-item custom-font-size" href="#">
-                            <img src="\back\src\images\unduh.png" alt="Icon" class="icon">
+                        <a class="dropdown-item custom-font-size" href="#"
+                            onclick="downloadChartAsJPG('{{ $chart['id'] }}')">
                             Download as JPG
                         </a>
                         <a class="dropdown-item custom-font-size" href="#">
-                            <img src="\back\src\images\unduh.png" alt="Icon" class="icon">
                             Download as PDF
                         </a>
                         <a class="dropdown-item custom-font-size" href="#">
-                            <img src="\back\src\images\unduh.png" alt="Icon" class="icon">
                             Download as CSV
-                        </a>
-                        <a class="dropdown-item custom-font-size" href="#">
-                            <img src="\back\src\images\delete.png" alt="Icon" class="icon">
-                            Delete
                         </a>
                     </div>
                 </div>
@@ -107,5 +97,14 @@
                 }
             });
         });
+
+        function downloadChartAsJPG(chartId) {
+            const canvas = document.getElementById(chartId);
+            const image = canvas.toDataURL("image/jpeg", 1.0);
+            const link = document.createElement('a');
+            link.href = image;
+            link.download = `${chartId}.jpg`;
+            link.click();
+        }
     </script>
 @endforeach
