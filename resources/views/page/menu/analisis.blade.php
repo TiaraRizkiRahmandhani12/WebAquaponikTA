@@ -37,9 +37,11 @@
                             onclick="downloadChartAsJPG('{{ $chart['id'] }}')">
                             Download as JPG
                         </a>
-                        <a class="dropdown-item custom-font-size" href="#">
+                        <a class="dropdown-item custom-font-size"
+                            href="{{ route('download.csv', ['chartId' => $chart['id']]) }}">
                             Download as CSV
                         </a>
+
                         <a class="dropdown-item custom-font-size" href="#"
                             onclick="downloadPDF('{{ $chart['id'] }}')">
                             Download as PDF
