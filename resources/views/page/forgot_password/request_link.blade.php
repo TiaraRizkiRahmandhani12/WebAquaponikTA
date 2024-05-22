@@ -93,23 +93,42 @@
             background-color: #16425C;
             border: 2px solid #16425C;
         }
+
+        .alert-fixed {
+            width: 100%;
+            /* Make alert full width of the login box */
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
 
 <body class="login-page">
     <div class="login-box">
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <img src="assets/images/auth/sabi.png" alt="Logo Evomo" class="centered-image">
         <span></span>
-        <form action="{{ route('#') }}" method="POST">
+        <form action="{{ route('send.link') }}" method="POST">
             @csrf
             <div class="input-group custom">
-                <input type="text" class="form-control form-control-lg" placeholder="New Password" name="password"
-                    value="{{ old('username') }}">
-            </div>
-
-            <div class="input-group custom">
-                <input type="password" class="form-control form-control-lg" placeholder="Confirmation Password"
-                    name="password">
+                <input type="text" class="form-control form-control-lg" placeholder="Email" name="email">
             </div>
             <div class="row">
                 <div class="col-sm-12 mt-5">
@@ -125,6 +144,15 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('.alert').fadeOut('fast');
+            }, 3000); // 3000 ms = 3 s
+        });
+    </script>
 
 </body>
 

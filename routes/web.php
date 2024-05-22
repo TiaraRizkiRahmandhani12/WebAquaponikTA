@@ -22,6 +22,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\PasswordController;
 // Route::get('/', [LoginController::class, 'index'])->name('root');
 // Route::get('/login', [LoginController::class, 'index'])->name('login');
 // Route::post('/login-process', [LoginController::class, 'loginProcess'])->name('login.process');
@@ -55,8 +56,9 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::get('/device-view', [DeviceController::class, 'deviceView'])->name('device');
 
     Route::get('/profile-view', [UserController::class, 'profileView'])->name('profile');
-    Route::get('/change-password-view', [UserController::class, 'changePasswordView'])->name('change.pswd');
-    Route::post('/change-password-process', [UserController::class, 'changePasswordProcess'])->name('change.pswd.process');
+
+    Route::get('/change-password-view', [PasswordController::class, 'changePasswordView'])->name('change.pswd');
+    Route::post('/change-password-process', [PasswordController::class, 'changePasswordProcess'])->name('change.pswd.process');
 
     Route::get('/control-view', [ControlController::class, 'controlView'])->name('control');
 
@@ -88,4 +90,7 @@ Route::get('/save-sensor-data', [ControlController::class, 'saveSensorData']);
 Route::get('/store-data', [ControlController::class, 'store']);
 Route::get('/kedua', [ControlController::class, 'kedua']);
 
-Route::get('/forgot-password-view', [UserController::class, 'forgotPasswordView'])->name('forgot.pswd');
+Route::get('/request-link-forgot-password', [PasswordController::class, 'requestLink'])->name('request.link');
+Route::post('/send-link', [PasswordController::class, 'sendResetLinkEmail'])->name('send.link');
+Route::get('/reset/password/{token}', [PasswordController::class, 'formResetPassword'])->name('reset.pswd');
+Route::post('/reset/password', [PasswordController::class, 'resetPassword']);

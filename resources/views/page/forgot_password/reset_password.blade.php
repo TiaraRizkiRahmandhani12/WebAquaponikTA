@@ -97,13 +97,25 @@
 </head>
 
 <body class="login-page">
+
     <div class="login-box">
+        @if (session('error'))
+            <div class="alert alert-danger">{{ session('error') }}</div>
+        @endif
+        @if (session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
         <img src="assets/images/auth/sabi.png" alt="Logo Evomo" class="centered-image">
         <span></span>
-        <form action="{{ route('send.link') }}" method="POST">
+        <form action="{{ route('reset.pswd', ['token' => $token]) }}" method="POST">
             @csrf
+            <input type="hidden" name="token" value="{{ $token }}">
             <div class="input-group custom">
-                <input type="text" class="form-control form-control-lg" placeholder="Email" name="email" value="{{ old('username') }}">
+                <input type="password" class="form-control form-control-lg" placeholder="New Password" name="password">
+            </div>
+            <div class="input-group custom">
+                <input type="password" class="form-control form-control-lg" placeholder="Confirmation Password"
+                    name="password_confirmation">
             </div>
             <div class="row">
                 <div class="col-sm-12 mt-5">
@@ -113,6 +125,7 @@
                 </div>
             </div>
         </form>
+
     </div>
 
     <!-- Bootstrap JS -->

@@ -14,39 +14,4 @@ class UserController extends Controller
     {
         return view('page.profile.profile');
     }
-
-    public function changePasswordView()
-    {
-        return view('page.profile.change_password');
-    }
-
-    public function changePasswordProcess(Request $request)
-    {
-        $request->validate([
-            'current_password' => 'required',
-            'password' => 'required|min:8|confirmed',
-        ]);
-
-        $user = auth()->user();
-
-        if (!$user) {
-            return redirect()->back()->with('error', 'Pengguna tidak ditemukan.');
-        }
-
-        // Periksa apakah password saat ini sesuai
-        if (!Hash::check($request->current_password, $user->password)) {
-            return redirect()->back()->with('error', 'Password saat ini salah.');
-        }
-
-        // Update password baru
-        $user->password = bcrypt($request->password);
-        $user->save(); // Simpan perubahan password
-
-        return redirect()->back()->with('success', 'Password berhasil diperbarui.');
-    }
-
-    public function forgotPasswordView()
-    {
-        return view('page.forgot_password.forgot_password');
-    }
 }
