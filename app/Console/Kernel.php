@@ -10,7 +10,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // Jadwalkan command untuk dijalankan setiap jam 1 malam
-        $schedule->command('pakan:update-from-temp')->dailyAt('01:00');
+        $schedule->command('pakan:update-from-temp')->dailyAt('03:12');
+        $schedule->command('todolist:process')->everyMinute();
     }
 
     protected function commands()

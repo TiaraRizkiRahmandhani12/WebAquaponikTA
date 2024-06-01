@@ -80,49 +80,4 @@ class PasswordController extends Controller
 
         return back()->with('status', 'We have e-mailed your password reset link!');
     }
-
-
-    public function formReserPassword($token)
-    {
-        return view(
-            'page.forgot_password.reset_password',
-            ['token' => $token]
-        );
-    }
-
-    public function resetPassword(Request $request)
-    {
-        $request->validate([
-            'token' => 'required',
-            'password' => 'required|confirmed|min:6', // Menambahkan aturan 'confirmed'
-        ]);
-
-        $passwordReset = PasswordReset::where('token', $request->token)->first();
-
-        if (!$passwordReset) {
-            return back()->withErrors(['email' => 'Invalid token.']);
-        }
-
-        // Check token expiration
-        if (Carbon::parse($passwordReset->created_at)->addHours(24)->isPast()) {
-            $passwordReset->delete();
-            return back()->withErrors(['email' => 'Token has expired.']);
-        }
-
-        // Find user by email
-        $user = User::where('email', $passwordReset->email)->first();
-
-        if (!$user) {
-            return back()->withErrors(['email' => 'User not found.']);
-        }
-
-        // Update user's password
-        $user->password = bcrypt($request->password);
-        $user->save();
-
-        // Delete password reset token
-        $passwordReset->delete();
-
-        return redirect()->route('login')->with('success', 'Your password has been reset successfully!');
-    }
 }

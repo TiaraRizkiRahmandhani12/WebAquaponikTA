@@ -62,6 +62,16 @@
             width: 100% !important;
             height: 100% !important;
         }
+
+        .pagination .page-item .page-link {
+            color: #007bff;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+        }
     </style>
 
 </head>
@@ -145,15 +155,7 @@
                         <span class="menu-icon">
                             <i class="mdi mdi-playlist-play"></i>
                         </span>
-                        <span class="menu-title">Analisis</span>
-                    </a>
-                </li>
-                <li class="nav-item menu-items">
-                    <a class="nav-link" href="{{ route('control') }}">
-                        <span class="menu-icon">
-                            <i class="mdi mdi-table-large"></i>
-                        </span>
-                        <span class="menu-title">Control</span>
+                        <span class="menu-title">Grafik Data</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
@@ -162,6 +164,14 @@
                             <i class="mdi mdi-chart-bar"></i>
                         </span>
                         <span class="menu-title">Device</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="{{ route('information') }}">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-speedometer"></i>
+                        </span>
+                        <span class="menu-title">Information</span>
                     </a>
                 </li>
                 @auth
@@ -176,6 +186,14 @@
                         </li>
                     @endif
                 @endauth
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="{{ route('schedule') }}">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-autorenew"></i>
+                        </span>
+                        <span class="menu-title">Managemen Control</span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- partial -->
@@ -199,6 +217,7 @@
                             </form>
                         </li>
                     </ul>
+
                     <ul class="navbar-nav navbar-nav-right">
                         <li class="nav-item nav-settings d-none d-lg-block">
                             <a class="nav-link" href="#">
@@ -208,16 +227,31 @@
                         <li class="nav-item dropdown border-left">
                             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
                                 data-toggle="dropdown" aria-expanded="false">
+                                @php
+                                    $pengingat = \App\Models\ToDoList::all();
+                                    $countClass = $pengingat->count() > 0 ? 'bg-success' : 'bg-error';
+                                @endphp
                                 <i class="mdi mdi-email"></i>
-                                <span class="count bg-success"></span>
+                                <span class="count {{ $countClass }}"></span>
                             </a>
-
-                            {{-- kotakan --}}
                             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                                 aria-labelledby="messageDropdown">
+                                @php
+                                    $pengingat = \App\Models\ToDoList::all();
+                                @endphp
+                                @foreach ($pengingat as $item)
+                                    <div class="dropdown-item d-flex align-items-center">
+                                        <i class="mdi mdi-alert-outline text-warning"></i>
+                                        <span class="text-muted mb-0 ml-1 mr-2 ">{{ $item->item }} <a
+                                                href="{{ route('information') }}" style="font-size:12px">read
+                                                more.</a></span>
+                                    </div>
+                                @endforeach
                             </div>
+
                         </li>
                     </ul>
+
                     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
                         data-toggle="offcanvas">
                         <span class="mdi mdi-format-line-spacing"></span>
@@ -271,6 +305,12 @@
     <!-- Custom js for this page -->
     <script src="assets/js/dashboard.js"></script>
     <!-- End custom js for this page -->
+    {{-- <script>
+        setInterval(function() {
+            location.reload();
+        }, 10000); // 10000 milliseconds = 10 seconds
+    </script> --}}
+</body>
 </body>
 
 </html>

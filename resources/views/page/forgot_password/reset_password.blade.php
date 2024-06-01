@@ -107,9 +107,11 @@
         @endif
         <img src="assets/images/auth/sabi.png" alt="Logo Evomo" class="centered-image">
         <span></span>
-        <form action="{{ route('reset.pswd', ['token' => $token]) }}" method="POST">
+        <form action="{{ route('reset') }}" method="post">
             @csrf
-            <input type="hidden" name="token" value="{{ $token }}">
+            <div class="input-group custom">
+                <input type="text" class="form-control form-control-lg" placeholder="Masukan token yang dikirim ke wa" name="token">
+            </div>
             <div class="input-group custom">
                 <input type="password" class="form-control form-control-lg" placeholder="New Password" name="password">
             </div>

@@ -9,9 +9,9 @@ class AdminController extends Controller
 {
     public function listUserView()
     {
-        $users = User::all();
-
-        return view('page.menu.data_user', ['users' => $users]);
+        $userCount = User::count(); // Menghitung jumlah pengguna
+        $users = User::all(); // Mengambil semua pengguna
+        return view('page.menu.data_user', compact('users', 'userCount')); //
     }
 
     public function formAddUser()

@@ -9,12 +9,23 @@ use Illuminate\Support\Facades\Session;
 
 class AnalisisController extends Controller
 {
-    public function analisisView()
+    public function analisisView(Request $request)
     {
-        $twoWeeksAgo = Carbon::now()->subWeeks(2);
+        // Ambil parameter start_date dan end_date dari request
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
 
-        // Ambil data dari 2 minggu terakhir
-        $records = Datasensor::where('created_at', '>=', $twoWeeksAgo)->get();
+        // Jika tidak ada parameter rentang waktu, gunakan rentang waktu default (2 minggu terakhir)
+        if (!$startDate || !$endDate) {
+            $startDate = Carbon::now()->subWeeks(2)->format('Y-m-d');
+            $endDate = Carbon::now()->format('Y-m-d');
+        }
+
+        // Ambil data berdasarkan rentang waktu
+        $latestdata = Datasensor::whereBetween('created_at', [$startDate, $endDate])
+            ->orderBy('created_at', 'desc')
+            ->distinct()
+            ->paginate(10);
 
         // Ambil data untuk 7 hari terakhir sebagai label
         $lastWeekRecords = Datasensor::where('created_at', '>=', Carbon::now()->subWeek())
@@ -26,13 +37,13 @@ class AnalisisController extends Controller
             return $record->created_at->format('d M H:i');
         });
 
-        $suhu = $records->pluck('suhu');
-        $tdsValue = $records->pluck('tdsValue');
-        $jarakAir = $records->pluck('jarakAir');
-        $jarakPakan = $records->pluck('jarakPakan');
-        $phAir = $records->pluck('phAir');
-        $created_at = $records->pluck('created_at');
+        $suhu = $latestdata->pluck('suhu');
+        $tdsValue = $latestdata->pluck('tdsValue');
+        $jarakAir = $latestdata->pluck('jarakAir');
+        $jarakPakan = $latestdata->pluck('jarakPakan');
+        $phAir = $latestdata->pluck('phAir');
+        $created_at = $latestdata->pluck('created_at');
 
-        return view('page.menu.analisis', compact('labels', 'suhu', 'tdsValue', 'jarakAir', 'jarakPakan', 'phAir', 'created_at'));
+        return view('page.menu.analisis', compact('labels', 'suhu', 'tdsValue', 'jarakAir', 'jarakPakan', 'phAir', 'created_at', 'latestdata', 'startDate', 'endDate'));
     }
 }

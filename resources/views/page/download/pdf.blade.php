@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <h1>Data
+    <h1>
         @if ($chartId == 'suhuchart')
             Suhu
         @elseif ($chartId == 'tdsValuechart')
@@ -46,13 +46,13 @@
         @elseif ($chartId == 'jarakpakanchart')
             Jarak Pakan
         @endif
-        2 Minggu Terakhir
+        Data for {{ date('F Y') }}
     </h1>
 
     <table>
         <thead>
             <tr>
-                <th>Waktu</th>
+                <th>Date</th>
                 <th>Data</th>
             </tr>
         </thead>

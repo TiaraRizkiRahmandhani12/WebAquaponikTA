@@ -28,8 +28,7 @@ class UpdatePakanFromTempCommand extends Command
             $pakan->save();
         }
 
-        // Hapus data dari tabel sementara setelah pembaruan
-        DB::table('temp_pakans')->truncate();
+
 
         $this->info('Data pakan berhasil diperbarui dari tabel sementara.');
     }

@@ -9315,8 +9315,8 @@ fieldset:disabled .wizard > .actions a,
 
 .btn-primary, .wizard > .actions a {
   color: #fff;
-  background-color: #0090e7;
-  border-color: #0090e7; }
+  background-color: #1a2b3c;
+  border-color: #1a2b3c; }
   .btn-primary:hover, .wizard > .actions a:hover {
     color: #fff;
     background-color: #0078c1;
@@ -9785,10 +9785,10 @@ input[type="button"].btn-block {
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
-  color: #ffffff;
+  color: #1a2b3c;
   text-align: left;
   list-style: none;
-  background-color: #1a2b34;
+  background-color: #1a2b3c;
   background-clip: padding-box;
   border: 1px solid #2c2e33;
   border-radius: 0.25rem; }
@@ -11401,7 +11401,7 @@ input[type="button"].btn-block {
   min-width: 0;
   word-wrap: break-word;
   /* tengah */
-  background-color: #16425c; 
+  background-color: #000000; 
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }
@@ -15214,7 +15214,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 /* text last update */
   .text-muted, .preview-list .preview-item .preview-item-content p .content-category {
-  color: #ee04ee !important; }
+  color: #6c7293 !important; }
 
 .text-black-50 {
   color: rgba(0, 0, 0, 0.5) !important; }
@@ -15720,7 +15720,7 @@ body,
 html {
   overflow-x: hidden;
   padding-right: 0 !important;
-  background-color: #1a2b34; }
+  background-color: #000000; }
 
 *:-moz-full-screen,
 *:-webkit-full-screen,
@@ -16400,33 +16400,33 @@ code {
     border-color: #e4eaec; }
 
 .btn-inverse-success {
-  background-color: rgba(0, 210, 91, 0.2);
+  background-color: #1a2b3c;
   background-image: none;
   border-color: rgba(0, 210, 91, 0); }
   .btn-inverse-success:not(.btn-inverse-light) {
-    color: #00d25b; }
+    color: #1a2b3c; }
   .btn-inverse-success:hover {
     color: #ffffff;
-    background-color: #00d25b;
-    border-color: #00d25b; }
+    background-color: #1a2b3c;
+    border-color: #1a2b3c; }
   .btn-inverse-success.focus, .btn-inverse-success:focus {
-    box-shadow: 0 0 0 3px rgba(0, 210, 91, 0.5); }
+    box-shadow: 0 0 0 3px #1a2b3c; }
   .btn-inverse-success.disabled, .btn-inverse-success:disabled {
-    color: #00d25b;
+    color: #1a2b3c;
     background-color: transparent; }
   .btn-inverse-success.active, .btn-inverse-success:active,
   .show > .btn-inverse-success.dropdown-toggle {
     color: #ffffff;
-    background-color: #00d25b;
-    border-color: #00d25b; }
+    background-color: #1a2b3c;
+    border-color: #1a2b3c; }
 
 .btn-success:not(.btn-light):not(.btn-secondary) {
   color: #ffffff; }
   .btn-success:not(.btn-light):not(.btn-secondary):hover, .btn-success:not(.btn-light):not(.btn-secondary):focus, .btn-success:not(.btn-light):not(.btn-secondary):active {
     color: #ffffff; }
   .btn-success:not(.btn-light):not(.btn-secondary):focus, .btn-success:not(.btn-light):not(.btn-secondary):active {
-    background: #00d25b;
-    border-color: #00d25b; }
+    background: #1a2b3c;
+    border-color: #1a2b3c; }
 
 .btn-inverse-info {
   background-color: rgba(143, 95, 232, 0.2);
@@ -19041,7 +19041,7 @@ body.avgrund-active {
     color: #ffffff; }
 
 .fc-external-events .fc-event {
-  background: #1a2b34;
+  background: #000000;
   color: #ffffff;
   border-width: 0 0 0 4px;
   padding: 16px;
@@ -20354,7 +20354,7 @@ div.tagsinput {
 /* Navbar */
 .navbar {
   font-weight: normal;
-  background: #1a2b34;
+  background: #000000;
   left: 244px;
   transition: left 0.25s ease;
   -webkit-transition: left 0.25s ease;
@@ -20368,7 +20368,7 @@ div.tagsinput {
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #1a2b34;
+    background: #000000;
     width: 244px;
     height: 70px; }
     @media (max-width: 991px) {
@@ -20395,7 +20395,7 @@ div.tagsinput {
           width: calc(70px - 50px);
           max-width: 100%;
           height: 28px;
-          margin: auto; }
+          margin-right: 10px; }
   .navbar .navbar-menu-wrapper {
     transition: width 0.25s ease;
     -webkit-transition: width 0.25s ease;
@@ -20464,7 +20464,7 @@ div.tagsinput {
       .navbar .navbar-menu-wrapper .count-indicator .count-number {
         position: absolute;
         border-radius: 100%;
-        border: 2px solid #1a2b34; }
+        border: 2px solid #000000; }
       .navbar .navbar-menu-wrapper .count-indicator .count-symbol {
         top: 17px;
         right: -3px;
@@ -20605,7 +20605,7 @@ div.tagsinput {
             margin-left: 0;
             margin-right: auto; } }
     .navbar .navbar-menu-wrapper .search input {
-      background: #1a2b34;
+      background: #000000;
       padding: 13px 20px 11px 20px;
       border: 1px solid #2c2e33; }
       .navbar .navbar-menu-wrapper .search input::placeholder {
@@ -20637,7 +20637,7 @@ div.tagsinput {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 70px);
-  background: #1a2b34;
+  background: #000000;
   font-weight: normal;
   padding: 0;
   width: 244px;
@@ -20651,7 +20651,7 @@ div.tagsinput {
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #1a2b34;
+    background: #000000;
     width: 244px;
     height: 70px; }
     @media (max-width: 991px) {
@@ -20750,7 +20750,7 @@ div.tagsinput {
           margin-right: auto;
           margin-left: 1rem; }
       .sidebar .nav .nav-item.active > .nav-link {
-        background: #1a2b34;
+        background: #000000;
         position: relative; }
         .sidebar .nav .nav-item.active > .nav-link:before {
           content: "";
@@ -20831,7 +20831,7 @@ div.tagsinput {
               .sidebar .nav .nav-item.profile .profile-desc .profile-pic .count-indicator .count-number {
                 position: absolute;
                 border-radius: 100%;
-                border: 2px solid #1a2b34; }
+                border: 2px solid #000000; }
               .sidebar .nav .nav-item.profile .profile-desc .profile-pic .count-indicator .count-symbol {
                 top: 17px;
                 right: -3px;
@@ -20885,7 +20885,7 @@ div.tagsinput {
 
         /* tulisan */
         .sidebar .nav .nav-item.nav-category .nav-link {
-          color: #00923f;
+          color: #ffffff;
           font-weight: 500;
           font-size: 14px;
           font-weight: 500;
@@ -20928,7 +20928,7 @@ div.tagsinput {
         .sidebar .nav.sub-menu .nav-item:hover {
           background: transparent; }
     .sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link {
-      background: #1a2b34;
+      background: #000000;
       color: #ffffff; }
     .sidebar .nav .menu-items:nth-child(5n+1) .nav-link .menu-icon i {
       color: #0090e7; }
@@ -21042,7 +21042,7 @@ div.tagsinput {
           display: flex;
           -webkit-align-items: center;
           align-items: center;
-          background: #1a2b34;
+          background: #000000;
           padding: 0.5rem 1.4rem;
           left: 70px;
           position: absolute;
@@ -21053,7 +21053,7 @@ div.tagsinput {
           z-index: 1;
           line-height: 1.8; }
           .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
-            background: #1a2b34; }
+            background: #000000; }
           .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
             left: auto;
             right: 70px;
@@ -21064,13 +21064,13 @@ div.tagsinput {
         .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
           display: block;
           padding: .5rem 0;
-          background: #1a2b34;
+          background: #000000;
           border-radius: 0 0 5px 0;
           position: absolute;
           left: 70px;
           width: 190px; }
           .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse, .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
-            background: #1a2b34; }
+            background: #000000; }
           .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse, .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
             left: auto;
             right: 70px;
@@ -21145,7 +21145,7 @@ div.tagsinput {
       width: 100%; } }
 
 .content-wrapper {
-  background: #4a6464;
+  background: #1a2b3c;
   padding: 1.875rem 1.75rem;
   width: 100%;
   -webkit-flex-grow: 1;

@@ -195,7 +195,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="forgot-password">
-                                        <a href="{{ route('request.link') }}">Forgot Password?</a>
+                                        <a href="{{ route('lupa') }}">Forgot Password?</a>
                                     </div>
                                 </div>
                                 <div class="col-6">

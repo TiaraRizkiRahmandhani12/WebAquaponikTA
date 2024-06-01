@@ -5,14 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Temp_Pakan extends Model
+class DrainageSchedule extends Model
 {
     use HasFactory;
-
+    protected $table = 'drainage_schedule';
     protected $fillable = [
-        'jam_pertama',
-        'jam_kedua',
-        'jam_ketiga',
-        'nilai'
+        'every',
     ];
 }

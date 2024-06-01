@@ -44,8 +44,11 @@
                         <!-- Input Status -->
                         <div class="form-group">
                             <label for="status">Status:</label>
-                            <input type="text" class="form-control" id="status" name="status"
-                                value="{{ old('status') }}" required>
+                            <select class="form-control" id="status" name="status" required>
+                                <option value="">Pilih Status</option>
+                                <option value="user" {{ old('status') == 'User' ? 'selected' : '' }}>User</option>
+                                <option value="admin" {{ old('status') == 'Admin' ? 'selected' : '' }}>Admin</option>
+                            </select>
                             @error('status')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
